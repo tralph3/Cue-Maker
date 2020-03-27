@@ -69,7 +69,10 @@ for file in cueFiles:
 
     if fileName.lower().find(" (disc") != -1 or fileName.lower().find("_(disc") != -1:
         print("Found file: \"" + fileName + "\"")
-        discWordIndex = fileName.lower().index(" (disc")
+        try:
+            discWordIndex = fileName.lower().index(" (disc")
+        except ValueError:
+            discWordIndex = fileName.lower().index("_(disc")
         m3uFilePath = fileDirectory + fileName[0:discWordIndex] + ".m3u"
         m3u = open(m3uFilePath, "a+")
         m3u.seek(0)
