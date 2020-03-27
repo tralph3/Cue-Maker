@@ -11,7 +11,7 @@ import glob
 
 while True:
     try:
-        directory = input("Input the absolute path to the folder where the bin files are located: ")
+        directory = input("Input the absolute path to the folder where the roms are located: ")
         os.chdir(directory)
         break
     except FileNotFoundError:
@@ -19,7 +19,7 @@ while True:
 
 recursive = input("Search sub-folders? (y|n): ")
 
-types = ("*.bin","*.img")
+types = ("*.bin","*.img", "*.chd")
 
 matchingFiles = []
 cueFiles = []
@@ -34,6 +34,10 @@ elif recursive == "n" or recursive == "N":
 print("Creating .cue...\n")
 
 for file in matchingFiles:
+    if file.rfind(".chd") != -1:
+        cueFiles.append(file)
+        continue
+
     if file.rfind("/") != -1:
         fileDirectory = file[0:file.rfind("/") + 1]
         fileName = file[file.rfind("/") + 1:len(file)]
