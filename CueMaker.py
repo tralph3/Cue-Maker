@@ -9,8 +9,14 @@
 import os
 import glob
 
-directory = input("Input the absolute path to the folder where the bin files are located: ")
-os.chdir(directory)
+while True:
+    try:
+        directory = input("Input the absolute path to the folder where the bin files are located: ")
+        os.chdir(directory)
+        break
+    except FileNotFoundError:
+        print("Invalid directory")
+
 recursive = input("Search sub-folders? (y|n): ")
 
 types = ("*.bin","*.img")
@@ -57,7 +63,7 @@ for file in cueFiles:
         fileDirectory = ""
         fileName = file
 
-    if fileName.lower().find(" (disc") != -1:
+    if fileName.lower().find(" (disc") != -1 or fileName.lower().find("_(disc") != -1:
         print("Found file: \"" + fileName + "\"")
         discWordIndex = fileName.lower().index(" (disc")
         m3uFilePath = fileDirectory + fileName[0:discWordIndex] + ".m3u"
