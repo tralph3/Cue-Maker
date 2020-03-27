@@ -18,6 +18,6 @@ Using this program is really simple, **you will need Python 3.5 or greater to ru
 ```
  **The disc needs to be sorrounded by parenthesis (case insensitive)**
  
- **There must be a space or an underscore before the opening parenthesis** (if you wish to modify this condition it's on line 66)
+ **There must be a space or an underscore before the opening parenthesis** (if you wish to modify this condition it's on line 70)
  
  ## You are free to distribute and modify this software as long as you don't claim it as your own.
