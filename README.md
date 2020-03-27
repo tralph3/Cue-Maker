@@ -1,8 +1,14 @@
 # PSX Cue Maker
-A simple and easy to use program that makes .cue and .m3u files for your PSX games.
+A simple and easy to use program that makes .cue and .m3u files for your PSX roms.
 
 # Usage
-PS1 roms generally come in 3 formats, .bin, .img and .iso. You will need .cue files for .bin and .img, but .iso are extent from this, for this reason, this program will work with the mentioned formats only.
+This program will work with the following extensions:
+
+```
+.bin > .cue and .m3u creation
+.img > .cue and .m3u creation
+.chd > .m3u creation
+```
 
 Using this program is really simple, **you will need Python 3.5 or greater to run this software**. Simply download the .py file and run it on the command line, it will ask you to input the absolute path to the folder where your roms are located, i.e. "C:\roms" for Windows, "~/roms" for Linux. After that it will ask you if you want it to search sub-folders, I added this check to not make a mess or need to move folders in case you don't want it entering other places. Then, it will create your files.
 
