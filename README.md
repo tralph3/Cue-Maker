@@ -1,5 +1,5 @@
 # PSX Cue Maker
-A simple and easy to use program that makes .cue and.m3u files for your PSX games.
+A simple and easy to use program that makes .cue and .m3u files for your PSX games.
 
 # Usage
 PS1 roms generally come in 3 formats, .bin, .img and .iso. You will need .cue files for .bin and .img, but .iso are extent from this, for this reason, this program will work with the mentioned formats only.
