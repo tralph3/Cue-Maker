@@ -1,12 +1,23 @@
 # PSX Cue Maker
-A simple and easy to use program that makes cue files for your PSX bin's.
+A simple and easy to use program that makes .cue and.m3u files for your PSX games.
 
 # Usage
-To use the PSX Cue Maker you simply need to download the "CueMaker.py" and run it via console. It will ask you for the directory where the bin files are located and it will create a cue file for each one of them. You need python3 and up installled.
+PS1 roms generally come in 3 formats, .bin, .img and .iso. You will need .cue files for .bin and .img, but .iso are extent from this, for this reason, this program will work with the mentioned formats only.
 
-Write this in the console:
-```
-python3 CueMaker.py
-```
+Using this program is really simple, **you will need Python 3.5 or greater to run this software**. Simply download the .py file and run it on the command line, it will ask you to input the absolute path to the folder where your roms are located, i.e. "C:\roms" for Windows, "~/roms" for Linux. After that it will ask you if you want it to search sub-folders, I added this check to not make a mess or need to move folders in case you don't want it entering other places. Then, it will create your files.
 
-Provided that you opened the console in the directory the script is located, it will run and make your cue files blazingly fast. That's all.
+**This program won't detect roms that have Track files, and need more data in their .cue files for them to work**
+
+**This program will create .m3u files provided your files are named in the following manner:**
+
+```
+"Game (Disc X)"
+"Game (DiscX)"
+"Game_(Disc X)"
+"Game_(DiscX)"
+```
+ **The disc needs to be sorrounded by parenthesis (case insensitive)**
+ 
+ **There must be a space or an underscore after the game name and the opening parenthesis** (if you wish to modify this condition it's on line 60)
+ 
+ ## You are free to distribute and modify this software as long as you don't claim it as your own.
