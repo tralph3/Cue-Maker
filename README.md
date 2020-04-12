@@ -16,7 +16,11 @@ Using this program is really simple, **you will need Python 3.5 or greater to ru
 $ CueMaker.py <directory> <recursive>
 ```
 
-The directory argument is pretty self explanatory, the recursive parameter is a question. It asks you if you want to make the program recursive (i.e. search all sub-folders in the directory). For yes, put a y, for no, an n. If you don't input anything as a second parameter, then the default is n.
+The directory argument is pretty self explanatory, the recursive parameter is a question. It asks you if you want to make the program recursive (i.e. search all sub-folders in the directory). For yes, put a y, for no, an n. If you don't input anything as a second parameter, then the default is n. Here's an example:
+
+```
+$ CueMaker.py C:\RetroArch\Roms y
+```
 
 **This program won't detect roms that have Track files, and need more data in their .cue files for them to work**
 
