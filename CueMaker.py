@@ -48,7 +48,7 @@ try:
     if genericCues.lower() == "y":
         genericCues = True
     elif genericCues.lower() == "n":
-        genericCues == False
+        genericCues = False
     else:
         print("\u001b[0;31mError: Bad argument, only \"y\" or \"n\" accepted\u001b[0m")
         exit()
@@ -137,6 +137,8 @@ def generateCue(file):
                     print("\u001b[1;31mCouldn't find database entry, creating generic .cue...\u001b[0m")
                     createGenericCue(cuePath, fileName)
                     cueFiles.append(cuePath)
+                else:
+                    print("\u001b[1;31mCouldn't find database entry.\u001b[0m\n--------")
         else:
             #Create an entry name based by a fixed offset from the hash
             print("\u001b[1;33mHash \u001b[1;32m" + fileHash + "\u001b[1;33m matches database!")
@@ -169,6 +171,8 @@ def generateCue(file):
                         print("\u001b[1;31mCouldn't find github entry, creating generic .cue...\u001b[0m")
                         createGenericCue(cuePath, fileName)
                         cueFiles.append(cuePath)
+                    else:
+                        print("\u001b[1;31mCouldn't find database entry.\u001b[0m\n--------")
                     return None
 
 
@@ -181,6 +185,8 @@ def generateCue(file):
                         print("\u001b[1;31mCouldn't find github entry, creating generic .cue...\u001b[0m")
                         createGenericCue(cuePath, fileName)
                         cueFiles.append(cuePath)
+                    else:
+                        print("\u001b[1;31mCouldn't find database entry.\u001b[0m\n--------")
                     return None
 
                 cueText = replaceCueFileName(cueText, fileName)
