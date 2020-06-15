@@ -10,6 +10,8 @@ This program will work with the following extensions:
 .chd > .m3u creation
 ```
 
+**It is required for the "disk.hash" file to be in the same folder as the script.**
+
 Using this program is really simple, **you will need Python 3.5 or greater to run this software**. Simply run the program on a command line and pass the following arguments like this:
 
 ```
@@ -45,5 +47,6 @@ Need for Speed - Porsche Unleashed (Track 04) (USA).bin
  
  **You can use the format "Disc x of x" as long as it's sorrounded by parenthesis**
  
- ## You are free to distribute and modify this software as long as you don't claim it as your own.
- ## Many thanks to opsxcq for providing the cue sheets and the database: https://github.com/opsxcq/psx-cue-sbi-collection
+ 
+**Many thanks to opsxcq for providing the cue sheets and the database: https://github.com/opsxcq/psx-cue-sbi-collection**
+## You are free to distribute and modify this software as long as you don't claim it as your own.
