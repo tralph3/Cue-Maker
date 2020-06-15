@@ -1,5 +1,5 @@
 # PSX Cue Maker
-A simple and easy to use program that makes .cue and .m3u files for your PSX roms.
+A simple and easy to use program that fetches the original .cue files for your PSX roms.
 
 # Usage
 This program will work with the following extensions:
@@ -13,16 +13,25 @@ This program will work with the following extensions:
 Using this program is really simple, **you will need Python 3.5 or greater to run this software**. Simply run the program on a command line and pass the following arguments like this:
 
 ```
-$ CueMaker.py <directory> <recursive>
+$ CueMaker.py <directory> <recursive> <generic-cues>
 ```
 
-The directory argument is pretty self explanatory, the recursive parameter is a question. It asks you if you want to make the program recursive (i.e. search all sub-folders in the directory). For yes, put a y, for no, an n. If you don't input anything as a second parameter, then the default is n. Here's an example:
+**Directory:** Input the absolute directory to your rom/s location.
+**Recursive:** y/n tells the program to search sub-folders, default is n.
+**Generic Cues:** y/n tells the program to generate generic cue files in case the originals can't be found.
 
 ```
-$ CueMaker.py C:\RetroArch\Roms y
+$ CueMaker.py C:\RetroArch\Roms y y
+```
+**For Track file detection to work correctly, the track number should be at the end of the file name like so:**
+```
+Need for Speed - Porsche Unleashed (USA) (Track 04).bin
 ```
 
-**This program won't detect roms that have Track files, and need more data in their .cue files for them to work**
+**The following will *most likely* cause issues:**
+```
+Need for Speed - Porsche Unleashed (Track 04) (USA).bin
+```
 
 **This program will create .m3u files provided your files are named in the following manner:**
 
@@ -36,6 +45,5 @@ $ CueMaker.py C:\RetroArch\Roms y
  
  **You can use the format "Disc x of x" as long as it's sorrounded by parenthesis**
  
- **There must be a space or an underscore before the opening parenthesis** (if you wish to modify this condition it's on line 85 of the latest version)
- 
  ## You are free to distribute and modify this software as long as you don't claim it as your own.
+ ## Many thanks to opsxcq for providing the cue sheets and the database: https://github.com/opsxcq/psx-cue-sbi-collection
