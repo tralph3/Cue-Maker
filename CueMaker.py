@@ -25,7 +25,7 @@ except FileNotFoundError:
     print("\u001b[0;31mError: Can't find \"disk.hash\", make sure it's on the same folder as the script\u001b[0m")
     exit()
 
-if len(sys.argv) < 2 or len(sys.argv) > 3:
+if len(sys.argv) < 2 or len(sys.argv) > 4:
     print("\u001b[1;31mUsage:\n----------\u001b[0m\n\n")
     print("\u001b[0;32;40m$ python3 CueMaker.py <directory> <recursive> <generic-cues>\u001b[0m\n")
     print("Go to \"\u001b[2;36mgithub.com/tralph3/psx-cue-maker\u001b[0m\" for detailed usage instructions.")
