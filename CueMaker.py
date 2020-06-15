@@ -19,7 +19,11 @@ def getSha1(file):
             hashSha1.update(chunk)
     return hashSha1.hexdigest()
 
-hashFile = open("disk.hash", "r").read()
+try:
+    hashFile = open("disk.hash", "r").read()
+except FileNotFoundError:
+    print("\u001b[0;31mError: Can't find \"disk.hash\", make sure it's on the same folder as the script\u001b[0m")
+    exit()
 
 if len(sys.argv) < 2 or len(sys.argv) > 3:
     print("\u001b[1;31mUsage:\n----------\u001b[0m\n\n")
