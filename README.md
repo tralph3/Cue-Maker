@@ -19,8 +19,11 @@ $ CueMaker.py <directory> <recursive> <generic-cues>
 ```
 
 **Directory:** Input the absolute directory to your rom/s location.
+
 **Recursive:** y/n tells the program to search sub-folders, default is n.
+
 **Generic Cues:** y/n tells the program to generate generic cue files in case the originals can't be found.
+
 
 ```
 $ CueMaker.py C:\RetroArch\Roms y y
