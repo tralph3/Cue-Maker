@@ -1,0 +1,204 @@
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 01).bin" BINARY
+  TRACK 01 MODE1/2352
+    INDEX 01 00:00:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 02).bin" BINARY
+  TRACK 02 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 03).bin" BINARY
+  TRACK 03 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 04).bin" BINARY
+  TRACK 04 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 05).bin" BINARY
+  TRACK 05 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 06).bin" BINARY
+  TRACK 06 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 07).bin" BINARY
+  TRACK 07 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 08).bin" BINARY
+  TRACK 08 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 09).bin" BINARY
+  TRACK 09 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 10).bin" BINARY
+  TRACK 10 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 11).bin" BINARY
+  TRACK 11 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 12).bin" BINARY
+  TRACK 12 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 13).bin" BINARY
+  TRACK 13 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 14).bin" BINARY
+  TRACK 14 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 15).bin" BINARY
+  TRACK 15 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 16).bin" BINARY
+  TRACK 16 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 17).bin" BINARY
+  TRACK 17 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 18).bin" BINARY
+  TRACK 18 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 19).bin" BINARY
+  TRACK 19 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 20).bin" BINARY
+  TRACK 20 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:02:18
+    INDEX 03 00:04:18
+    INDEX 04 00:04:49
+    INDEX 05 00:06:49
+    INDEX 06 00:07:17
+    INDEX 07 00:09:17
+    INDEX 08 00:11:21
+    INDEX 09 00:13:21
+    INDEX 10 00:13:72
+    INDEX 11 00:15:72
+    INDEX 12 00:16:53
+    INDEX 13 00:18:53
+    INDEX 14 00:19:58
+    INDEX 15 00:21:58
+    INDEX 16 00:22:47
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 21).bin" BINARY
+  TRACK 21 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:03:15
+    INDEX 03 00:05:15
+    INDEX 04 00:06:73
+    INDEX 05 00:08:73
+    INDEX 06 00:12:01
+    INDEX 07 00:14:01
+    INDEX 08 00:17:20
+    INDEX 09 00:19:20
+    INDEX 10 00:21:65
+    INDEX 11 00:23:65
+    INDEX 12 00:27:01
+    INDEX 13 00:29:01
+    INDEX 14 00:30:55
+    INDEX 15 00:32:55
+    INDEX 16 00:33:20
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 22).bin" BINARY
+  TRACK 22 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:03:00
+    INDEX 03 00:05:00
+    INDEX 04 00:07:04
+    INDEX 05 00:09:04
+    INDEX 06 00:12:13
+    INDEX 07 00:14:13
+    INDEX 08 00:18:15
+    INDEX 09 00:20:15
+    INDEX 10 00:23:22
+    INDEX 11 00:25:22
+    INDEX 12 00:28:16
+    INDEX 13 00:30:16
+    INDEX 14 00:33:66
+    INDEX 15 00:35:66
+    INDEX 16 00:39:44
+    INDEX 17 00:41:44
+    INDEX 18 00:42:19
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 23).bin" BINARY
+  TRACK 23 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:03:47
+    INDEX 03 00:05:47
+    INDEX 04 00:07:19
+    INDEX 05 00:09:19
+    INDEX 06 00:16:47
+    INDEX 07 00:18:47
+    INDEX 08 00:22:57
+    INDEX 09 00:24:57
+    INDEX 10 00:28:08
+    INDEX 11 00:30:08
+    INDEX 12 00:32:62
+    INDEX 13 00:34:62
+    INDEX 14 00:37:63
+    INDEX 15 00:39:63
+    INDEX 16 00:47:02
+    INDEX 17 00:49:02
+    INDEX 18 00:53:33
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 24).bin" BINARY
+  TRACK 24 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:17:01
+    INDEX 03 00:19:01
+    INDEX 04 00:34:02
+    INDEX 05 00:36:02
+    INDEX 06 00:36:19
+    INDEX 07 00:38:19
+    INDEX 08 00:38:47
+    INDEX 09 00:40:47
+    INDEX 10 00:40:62
+    INDEX 11 00:42:62
+    INDEX 12 00:43:26
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 25).bin" BINARY
+  TRACK 25 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:02:18
+    INDEX 03 00:04:18
+    INDEX 04 00:05:32
+    INDEX 05 00:07:32
+    INDEX 06 00:08:54
+    INDEX 07 00:10:54
+    INDEX 08 00:12:02
+    INDEX 09 00:14:02
+    INDEX 10 00:14:74
+    INDEX 11 00:16:74
+    INDEX 12 00:17:53
+    INDEX 13 00:19:53
+    INDEX 14 00:20:34
+    INDEX 15 00:22:34
+    INDEX 16 00:23:15
+    INDEX 17 00:25:15
+    INDEX 18 00:25:71
+    INDEX 19 00:27:71
+    INDEX 20 00:28:52
+FILE "Zanma Chou Ougi - Valhollian (Japan) (Track 26).bin" BINARY
+  TRACK 26 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:02:56
+    INDEX 03 00:04:56
+    INDEX 04 00:06:56
+    INDEX 05 00:08:56
+    INDEX 06 00:10:56
+    INDEX 07 00:12:56
+    INDEX 08 00:14:57

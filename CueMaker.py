@@ -20,7 +20,7 @@ def getSha1(file):
     return hashSha1.hexdigest()
 
 try:
-    hashFile = open("disk.hash", "r").read()
+    hashFile = open("psx.hash", "r").read()
 except FileNotFoundError:
     print("\u001b[0;31mError: Can't find \"disk.hash\", make sure it's on the same folder as the script\u001b[0m")
     exit()

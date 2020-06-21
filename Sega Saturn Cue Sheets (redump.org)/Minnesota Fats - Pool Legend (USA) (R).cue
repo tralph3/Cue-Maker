@@ -1,0 +1,172 @@
+CATALOG 0000000000000
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 01).bin" BINARY
+  TRACK 01 MODE1/2352
+    INDEX 01 00:00:00
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 02).bin" BINARY
+  TRACK 02 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 03).bin" BINARY
+  TRACK 03 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:02
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 04).bin" BINARY
+  TRACK 04 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 05).bin" BINARY
+  TRACK 05 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:02
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 06).bin" BINARY
+  TRACK 06 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:02
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 07).bin" BINARY
+  TRACK 07 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 08).bin" BINARY
+  TRACK 08 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 09).bin" BINARY
+  TRACK 09 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 10).bin" BINARY
+  TRACK 10 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 11).bin" BINARY
+  TRACK 11 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:04:39
+    INDEX 03 00:06:39
+    INDEX 04 00:09:01
+    INDEX 05 00:11:01
+    INDEX 06 00:13:39
+    INDEX 07 00:15:39
+    INDEX 08 00:17:26
+    INDEX 09 00:19:26
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 12).bin" BINARY
+  TRACK 12 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:03:19
+    INDEX 03 00:05:19
+    INDEX 04 00:06:49
+    INDEX 05 00:08:49
+    INDEX 06 00:09:66
+    INDEX 07 00:11:67
+    INDEX 08 00:13:02
+    INDEX 09 00:15:02
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 13).bin" BINARY
+  TRACK 13 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:04:19
+    INDEX 03 00:06:19
+    INDEX 04 00:08:26
+    INDEX 05 00:10:26
+    INDEX 06 00:11:11
+    INDEX 07 00:13:11
+    INDEX 08 00:14:21
+    INDEX 09 00:16:21
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 14).bin" BINARY
+  TRACK 14 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:02
+    INDEX 02 00:03:60
+    INDEX 03 00:05:60
+    INDEX 04 00:08:20
+    INDEX 05 00:10:20
+    INDEX 06 00:12:20
+    INDEX 07 00:14:20
+    INDEX 08 00:16:12
+    INDEX 09 00:18:12
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 15).bin" BINARY
+  TRACK 15 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:04:19
+    INDEX 03 00:06:19
+    INDEX 04 00:08:39
+    INDEX 05 00:10:39
+    INDEX 06 00:12:09
+    INDEX 07 00:14:09
+    INDEX 08 00:16:49
+    INDEX 09 00:18:49
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 16).bin" BINARY
+  TRACK 16 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:04:40
+    INDEX 03 00:06:40
+    INDEX 04 00:08:40
+    INDEX 05 00:10:40
+    INDEX 06 00:12:62
+    INDEX 07 00:14:62
+    INDEX 08 00:16:10
+    INDEX 09 00:18:10
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 17).bin" BINARY
+  TRACK 17 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:02
+    INDEX 02 00:03:25
+    INDEX 03 00:05:25
+    INDEX 04 00:06:20
+    INDEX 05 00:08:20
+    INDEX 06 00:09:22
+    INDEX 07 00:11:22
+    INDEX 08 00:11:57
+    INDEX 09 00:13:57
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 18).bin" BINARY
+  TRACK 18 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:02:57
+    INDEX 03 00:04:57
+    INDEX 04 00:05:44
+    INDEX 05 00:07:44
+    INDEX 06 00:08:32
+    INDEX 07 00:10:32
+    INDEX 08 00:11:04
+    INDEX 09 00:13:04
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 19).bin" BINARY
+  TRACK 19 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:02
+    INDEX 02 00:03:58
+    INDEX 03 00:05:58
+    INDEX 04 00:06:55
+    INDEX 05 00:08:55
+    INDEX 06 00:09:33
+    INDEX 07 00:11:33
+    INDEX 08 00:12:15
+    INDEX 09 00:14:15
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 20).bin" BINARY
+  TRACK 20 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:03:51
+    INDEX 03 00:05:51
+    INDEX 04 00:07:29
+    INDEX 05 00:09:29
+    INDEX 06 00:11:04
+    INDEX 07 00:13:04
+    INDEX 08 00:14:29
+    INDEX 09 00:16:29
+FILE "Minnesota Fats - Pool Legend (USA) (R) (Track 21).bin" BINARY
+  TRACK 21 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
+    INDEX 02 00:02:35
+    INDEX 03 00:04:35
+    INDEX 04 00:05:15
+    INDEX 05 00:07:15
+    INDEX 06 00:07:67
+    INDEX 07 00:09:67
+    INDEX 08 00:13:30
+    INDEX 09 00:15:30
