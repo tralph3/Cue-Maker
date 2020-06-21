@@ -86,11 +86,11 @@ def createGenericCue(cuePath, fileName):
 def fetchCue(entryName):
     #Creates links given an entry name
     try:
-        link = 'https://raw.githubusercontent.com/opsxcq/psx-cue-sbi-collection/master/redump.org/' + entryName[:len(entryName)-4] + ".cue"
+        link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/Sony PlayStation Cue Sheets (redump.org)/' + entryName[:len(entryName)-4] + ".cue"
         link = link.replace(" ", "%20")
         cueText = urlopen(link).read().decode("UTF-8")
     except Exception:
-        link = 'https://raw.githubusercontent.com/opsxcq/psx-cue-sbi-collection/master/emuparadise.me/' + entryName[:len(entryName)-4] + "/" + entryName[:len(entryName)-4] + ".cue"
+        link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/Sony PlayStation Cue Sheets (emuparadise.me)/' + entryName[:len(entryName)-4] + ".cue"
         link = link.replace(" ", "%20")
         cueText = urlopen(link).read().decode("UTF-8")
     return cueText
