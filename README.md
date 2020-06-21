@@ -1,5 +1,5 @@
-# PSX Cue Maker
-A simple and easy to use program that fetches the original .cue files for your PSX roms.
+# Cue Maker
+A simple and easy to use program that fetches the original .cue files for your roms.
 
 # Usage
 This program will work with the following extensions:
@@ -10,7 +10,7 @@ This program will work with the following extensions:
 .chd > .m3u creation
 ```
 
-**It is required for the "disk.hash" file to be in the same folder as the script.**
+**It is required for the "psx.hash" file to be in the same folder as the script.**
 
 Using this program is really simple, **you will need Python 3.5 or greater to run this software**. Simply run the program on a command line and pass the following arguments like this:
 
