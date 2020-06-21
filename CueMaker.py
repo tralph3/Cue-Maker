@@ -22,7 +22,7 @@ def getSha1(file):
 try:
     hashFile = open("psx.hash", "r").read()
 except FileNotFoundError:
-    print("\u001b[0;31mError: Can't find \"disk.hash\", make sure it's on the same folder as the script\u001b[0m")
+    print("\u001b[0;31mError: Can't find \"psx.hash\", make sure it's on the same folder as the script\u001b[0m")
     exit()
 
 if len(sys.argv) < 2 or len(sys.argv) > 4:
