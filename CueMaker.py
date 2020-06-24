@@ -205,8 +205,10 @@ def generateCue(file):
 
                 #Generate text to write to cue
                 currentGameCue = cueText
+                trackIndex = cueText.find("TRACK " + trackNumber)
+                fileIndex = cueText.rfind("FILE \"", 0, trackIndex)
                 nextFileIndex = cueText.find("FILE \"", trackIndex)
-                trackCueText = cueText[:nextFileIndex]
+                trackCueText = cueText[fileIndex:nextFileIndex]
                 trackCueText = replaceCueFileName(trackCueText, fileName)
                 
                 #Generate path for cue
