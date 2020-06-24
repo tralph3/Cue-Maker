@@ -10,9 +10,9 @@ This program will work with the following extensions:
 .chd > .m3u creation
 ```
 
-**It is required for the "psx.hash" file to be in the same folder as the script.**
+**You only need the file "CueMaker.py" everything else will be fetched from this repo.**
 
-Using this program is really simple, **you will need Python 3.5 or greater to run this software**. Simply run the program on a command line and pass the following arguments like this:
+Using this program is really simple, **you need Python 3.5 or greater to be installed**. Simply run the program on a command line and pass the following arguments like this:
 
 ```
 $ CueMaker.py <directory> <recursive> <generic-cues>
@@ -28,28 +28,25 @@ $ CueMaker.py <directory> <recursive> <generic-cues>
 ```
 $ CueMaker.py C:\RetroArch\Roms y y
 ```
-**For Track file detection to work correctly, the track number should be at the end of the file name like so:**
+
+## Formatting
+
+You will need to follow certaing formatting on the roms name's in order to ensure the correct functionality of the program. The list of roms is ordered alphabetically when the program is executed, for this reason you need to make sure that Track and Disc files are in the correct order. To make it easy, make sure your roms comply with these points:
+
+* If the file is a Track file, it must be enclosed in parenthesis and must have a space beforehand: " (Track 2)"
+* If the game has multiple discs, you need to state it the same way as tracks: " (Disc 3)"
+* If the game has multiple discs and multiple track files, the Disc indicator **must come before the Track indicator.**
+* Preferably, put the Disc and Track indicators after the game's name, you may specify region anywhere else.
+
+This is a correctly formatted list of roms:
+
 ```
-Need for Speed - Porsche Unleashed (USA) (Track 04).bin
+3x3 Eyes - Kyuusei Koushu S (Japan) (Disc 1) (Track 1).bin
+3x3 Eyes - Kyuusei Koushu S (Japan) (Disc 1) (Track 2).bin
+3x3 Eyes - Kyuusei Koushu S (Japan) (Disc 1) (Track 3).bin
+3x3 Eyes - Kyuusei Koushu S (Japan) (Disc 1) (Track 4).bin
+3x3 Eyes - Kyuusei Koushu S (Japan) (Disc 2) (Track 1).bin
+3x3 Eyes - Kyuusei Koushu S (Japan) (Disc 2) (Track 2).bin
 ```
 
-**The following will *most likely* cause issues:**
-```
-Need for Speed - Porsche Unleashed (Track 04) (USA).bin
-```
-
-**This program will create .m3u files provided your files are named in the following manner:**
-
-```
-"Game (Disc X)"
-"Game (DiscX)"
-"Game_(Disc X)"
-"Game_(DiscX)"
-```
- **The disc needs to be sorrounded by parenthesis (case insensitive)**
- 
- **You can use the format "Disc x of x" as long as it's sorrounded by parenthesis**
- 
- 
-**Many thanks to opsxcq for providing the cue sheets and the database: https://github.com/opsxcq/psx-cue-sbi-collection**
 ## You are free to distribute and modify this software as long as you don't claim it as your own.
