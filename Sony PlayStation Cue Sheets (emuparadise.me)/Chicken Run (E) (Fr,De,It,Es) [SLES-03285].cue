@@ -1,3 +1,0 @@
-FILE "Chicken Run (E) (Fr,De,It,Es) [SLES-03285].bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00

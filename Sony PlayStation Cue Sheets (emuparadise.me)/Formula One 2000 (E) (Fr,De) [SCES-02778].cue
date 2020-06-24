@@ -1,3 +1,0 @@
-FILE "Formula One 2000 (E) (Fr,De) [SCES-02778].bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00

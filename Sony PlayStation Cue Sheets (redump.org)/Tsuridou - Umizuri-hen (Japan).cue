@@ -37,3 +37,7 @@ FILE "Tsuridou - Umizuri-hen (Japan) (Track 10).bin" BINARY
   TRACK 10 AUDIO
     INDEX 00 00:00:00
     INDEX 01 00:02:00
+FILE "Tsuridou - Umizuri-hen (Japan) (Track 11).bin" BINARY
+  TRACK 11 AUDIO
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00

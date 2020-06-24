@@ -70,6 +70,7 @@ m3uWriteCounter = 0
 cueCreatedCounter = 0
 currentGameCue = ""
 currentGameCuePath = ""
+currentGameTrackNumber = 0
 
 if recursive.lower() == "y":
     for files in types:
@@ -85,10 +86,15 @@ else:
 
 print("\u001b[1;32mCreating .cue...\u001b[0m\n")
 
-def createGenericCue(cuePath, fileName):
+def createGenericCue(cuePath, fileName, system="PlayStation"):
     global cueCreatedCounter
+    if system == "PlayStation":
+        number = "2"
+    elif system == "Saturn":
+        number = "1"
+
     cue = open(cuePath, "w+")
-    cueText = "FILE \"" + fileName + "\" BINARY\n  TRACK 01 MODE2/2352\n    INDEX 01 00:00:00\n"
+    cueText = "FILE \"" + fileName + "\" BINARY\n  TRACK 01 MODE" + number + "/2352\n    INDEX 01 00:00:00\n"
     cue.write(cueText)
     cue.close()
     print("\u001b[36mCreated: \"\u001b[1;33m" + fileName[0:len(fileName) - 4] + ".cue\u001b[36m\"\u001b[0m\n--------")
@@ -102,12 +108,7 @@ def fetchCue(entryName, system):
             link = link.replace(" ", "%20")
             cueText = urlopen(link).read().decode("UTF-8")
         except Exception:
-            try:
-                link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/Sony PlayStation Cue Sheets (emuparadise.me)/' + entryName[:len(entryName)-4] + ".cue"
-                link = link.replace(" ", "%20")
-                cueText = urlopen(link).read().decode("UTF-8")
-            except Exception:
-                return Exception
+            return Exception
     elif system == "Saturn":
         try:
             link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/Sega Saturn Cue Sheets (redump.org)/' + entryName[:len(entryName)-4] + ".cue"
@@ -134,6 +135,8 @@ def generateCue(file):
     global currentGameCue
     global currentGameCuePath
     global cueCreatedCounter
+    global currentGameTrackNumber
+
     #Ignore .chd files
     if file.rfind(".chd") != -1:
         cueFiles.append(file)
@@ -182,40 +185,57 @@ def generateCue(file):
         entryName = system[int(foundEntry + len(fileHash) + 2):int(lineEnd)]
         #If the file has multiple tracks, use special conditions
         if entryName.rfind("Track ") != -1:
-            #Modify entry name to get the appriate link
+
+            #Modify entry name to get the appropiate link
             trackNumber = getTrackNumber(entryName)
             entryName = entryName.replace(" (Track " + str(int(trackNumber)) + ").bin", ".cue")
+
             if entryName[-4:] == ".bin":
                 entryName = entryName.replace(" (Track " + trackNumber + ").bin", ".cue")
+
             if int(trackNumber) == 1:
                 #Fetch the cue and save its entirety into the global variable "currentGameCue"
                 cueText = fetchCue(entryName, systemName)
+
                 if cueText == Exception:
                     print("\u001b[1;31mCouldn't find original cue on GitHub.\u001b[0m\n--------")
                     return None
+
+                #Generate text to write to cue
                 currentGameCue = cueText
                 trackIndex = cueText.find("TRACK " + trackNumber)
                 fileIndex = cueText.rfind("FILE \"", 0, trackIndex)
                 nextFileIndex = cueText.find("FILE \"", trackIndex)
                 trackCueText = cueText[fileIndex:nextFileIndex]
                 trackCueText = replaceCueFileName(trackCueText, fileName)
+                
+                #Generate path for cue
                 cuePathTrackIndex = cuePath.lower().rfind(" (track")
-                cuePathParenthesisIndex = cuePath.rfind(")")
+                cuePathParenthesisIndex = cuePath.find(")", cuePathTrackIndex)
                 cuePath = cuePath.replace(cuePath[cuePathTrackIndex:cuePathParenthesisIndex+1], "")
                 cue = open(cuePath, "a+")
                 cueFiles.append(cuePath)
+
+                #Set data for future track files
                 currentGameCuePath = cuePath
+                currentGameTrackNumber = int(trackNumber) + 1
+                cueCreatedCounter += 1
+                cueFiles.append(cuePath)
             else:
+
+                #If track number is other than 1, use the cue from the previous file with "track 1"
                 if currentGameCue == "":
                     print("\u001b[1;31mCouldn't find original cue on GitHub.\u001b[0m\n--------")
                     return None
-                #Use "currentGameCue" instead of fetching a new one to make the operations
-                trackIndex = currentGameCue.find("TRACK " + trackNumber)
+
+                #Generate text to write to cue
+                trackIndex = currentGameCue.find("TRACK " + str(currentGameTrackNumber).zfill(2))
                 fileIndex = currentGameCue.rfind("FILE \"", 0, trackIndex)
                 nextFileIndex = currentGameCue.find("FILE \"", trackIndex)
                 trackCueText = currentGameCue[fileIndex:nextFileIndex]
-                trackCueText = replaceCueFileName(trackCueText, fileName)
+                trackCueText = replaceCueFileName(trackCueText, fileName)                
                 cue = open(currentGameCuePath, "a+")
+                currentGameTrackNumber += 1
             cue.seek(0)
             if cue.read().find(trackCueText) == -1:
                 cue.write(trackCueText)
@@ -225,12 +245,12 @@ def generateCue(file):
             cue.close()                        
 
         else:
-            #Try to fetch it from two sources, if both fail default to generic
+            #Try to fetch the cue, if it fails default to generic
             cueText = fetchCue(entryName, systemName)
             if cueText == Exception:
                 if genericCues:
                     print("\u001b[1;31mCouldn't find github entry, creating generic .cue...\u001b[0m")
-                    createGenericCue(cuePath, fileName)
+                    createGenericCue(cuePath, fileName, systemName)
                     cueFiles.append(cuePath)
                 else:
                     print("\u001b[1;31mCouldn't find original cue on GitHub.\u001b[0m\n--------")
@@ -242,16 +262,16 @@ def generateCue(file):
             cue.close()
             print("\u001b[36mFetched: \"\u001b[1;33m" + fileName[0:len(fileName) - 4] + ".cue\u001b[36m\"\u001b[0m\n--------")
             cueCreatedCounter += 1
+            cueFiles.append(cuePath)
     else:
         print("\u001b[1;31mThis file already has a .cue\u001b[0m\n--------")
-    cueFiles.append(cuePath)
+        cueFiles.append(cuePath)
 
 for file in matchingFiles:
     generateCue(file)
     
 
 print("\n\u001b[1;32mCreating .m3u...\u001b[0m\n")
-
 for file in cueFiles:
     if file.rfind("/") != -1:
         fileDirectory = file[0:file.rfind("/") + 1]
@@ -262,11 +282,9 @@ for file in cueFiles:
 
     if fileName.lower().find(" (disc") != -1 or fileName.lower().find("_(disc") != -1:
         print("Found file: \"\u001b[1;33m" + fileName + "\u001b[0m\"")
-        try:
-            discWordIndex = fileName.lower().index(" (disc")
-        except ValueError:
-            discWordIndex = fileName.lower().index("_(disc")
-        m3uFilePath = fileDirectory + fileName[0:discWordIndex] + ".m3u"
+        discWordIndex = fileName.lower().rfind(" (disc")
+        discClose = fileName.lower().rfind(")", discWordIndex + 2)
+        m3uFilePath = fileDirectory + fileName.replace(fileName[discWordIndex:discClose + 1], "").replace(fileName[-4:], ".m3u")
         m3u = open(m3uFilePath, "a+")
         m3u.seek(0)
         if m3u.read().find(fileName) == -1:

@@ -179,7 +179,8 @@ FILE "South Park Rally (Europe) (Track 45).bin" BINARY
     INDEX 01 00:02:00
 FILE "South Park Rally (Europe) (Track 46).bin" BINARY
   TRACK 46 AUDIO
-    INDEX 01 00:00:00
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
 FILE "South Park Rally (Europe) (Track 47).bin" BINARY
   TRACK 47 AUDIO
     INDEX 00 00:00:00
@@ -190,7 +191,8 @@ FILE "South Park Rally (Europe) (Track 48).bin" BINARY
     INDEX 01 00:02:00
 FILE "South Park Rally (Europe) (Track 49).bin" BINARY
   TRACK 49 AUDIO
-    INDEX 01 00:00:00
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
 FILE "South Park Rally (Europe) (Track 50).bin" BINARY
   TRACK 50 AUDIO
     INDEX 00 00:00:00
@@ -233,7 +235,8 @@ FILE "South Park Rally (Europe) (Track 59).bin" BINARY
     INDEX 01 00:02:00
 FILE "South Park Rally (Europe) (Track 60).bin" BINARY
   TRACK 60 AUDIO
-    INDEX 01 00:00:00
+    INDEX 00 00:00:00
+    INDEX 01 00:02:00
 FILE "South Park Rally (Europe) (Track 61).bin" BINARY
   TRACK 61 AUDIO
     INDEX 00 00:00:00

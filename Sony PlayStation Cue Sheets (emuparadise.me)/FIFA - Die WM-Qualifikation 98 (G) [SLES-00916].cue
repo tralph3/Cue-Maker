@@ -1,3 +1,0 @@
-FILE "FIFA - Die WM-Qualifikation 98 (G) [SLES-00916].bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
