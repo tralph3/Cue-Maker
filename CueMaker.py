@@ -173,8 +173,10 @@ def generateCue(file):
                         print("\u001b[1;31mCouldn't find database entry, creating generic .cue...\u001b[0m")
                         createGenericCue(cuePath, fileName)
                         cueFiles.append(cuePath)
+                        return None
                     else:
                         print("\u001b[1;31mCouldn't find database entry.\u001b[0m\n--------")
+                        return None
         else:
             system = psxHashFile
             systemName = "PlayStation"
@@ -252,6 +254,7 @@ def generateCue(file):
                     print("\u001b[1;31mCouldn't find github entry, creating generic .cue...\u001b[0m")
                     createGenericCue(cuePath, fileName, systemName)
                     cueFiles.append(cuePath)
+                    return None
                 else:
                     print("\u001b[1;31mCouldn't find original cue on GitHub.\u001b[0m\n--------")
                 return None
