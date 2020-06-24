@@ -119,7 +119,7 @@ def fetchCue(entryName, system):
     return cueText
 
 def getTrackNumber(entryName):
-    trackIndex = entryName.rfind("(Track ")
+    trackIndex = entryName.lower().rfind("(track ")
     spaceIndex = entryName.rfind(" ", trackIndex, len(entryName))
     parenthesisIndex = entryName.rfind(")", trackIndex, len(entryName))
     trackNumber = entryName[spaceIndex+1:parenthesisIndex]
