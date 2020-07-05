@@ -14,7 +14,7 @@ This program will work with the following extensions:
 
 Using this program is really simple, **you need Python 3.5 or greater to be installed**. I'm using the argparse library, so you can pass the -h flag for usage instructions. Alternatively, you can see the output of the command here:
 
-¨¨¨
+```
 usage: CueMaker.py [-h] [-r] [-g] directory
 
 Original .cue file fetcher for game roms and .m3u creator.
@@ -27,7 +27,7 @@ optional arguments:
   -r, --recursive  search sub-folders
   -g, --generic    create generic cue files if originals can't be found
 
-¨¨¨
+```
 
 ## Formatting
 
