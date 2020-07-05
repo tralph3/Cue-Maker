@@ -12,22 +12,22 @@ This program will work with the following extensions:
 
 **You only need the file "CueMaker.py" everything else will be fetched from this repo.**
 
-Using this program is really simple, **you need Python 3.5 or greater to be installed**. Simply run the program on a command line and pass the following arguments like this:
+Using this program is really simple, **you need Python 3.5 or greater to be installed**. I'm using the argparse library, so you can pass the -h flag for usage instructions. Alternatively, you can see the output of the command here:
 
-```
-$ CueMaker.py <directory> <recursive> <generic-cues>
-```
+¨¨¨
+usage: CueMaker.py [-h] [-r] [-g] directory
 
-**Directory:** Input the absolute directory to your rom/s location.
+Original .cue file fetcher for game roms and .m3u creator.
 
-**Recursive:** y/n tells the program to search sub-folders, default is n.
+positional arguments:
+  directory        The directory for the roms
 
-**Generic Cues:** y/n tells the program to generate generic cue files in case the originals can't be found.
+optional arguments:
+  -h, --help       show this help message and exit
+  -r, --recursive  search sub-folders
+  -g, --generic    create generic cue files if originals can't be found
 
-
-```
-$ CueMaker.py C:\RetroArch\Roms y y
-```
+¨¨¨
 
 ## Formatting
 
