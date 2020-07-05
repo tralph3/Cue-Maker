@@ -8,9 +8,27 @@
 
 import os
 import glob
-import sys
 import hashlib
+import argparse
 from urllib.request import urlopen
+
+parser = argparse.ArgumentParser(description="Original .cue file fetcher for game roms and .m3u creator.")
+parser.add_argument("directory", type=str, help="The directory for the roms")
+parser.add_argument("-r", "--recursive", action="store_true", help="search sub-folders")
+parser.add_argument("-g", "--generic", action="store_true", help="create generic cue files if originals can't be found")
+args = parser.parse_args()
+
+recursive = args.recursive
+genericCues = args.generic
+types = ("*.bin", "*.img", "*.chd")
+
+matchingFiles = []
+cueFiles = []
+m3uWriteCounter = 0
+cueCreatedCounter = 0
+currentGameCue = ""
+currentGameCuePath = ""
+currentGameTrackNumber = 0
 
 def getSha1(file):
     hashSha1 = hashlib.sha1()
@@ -32,57 +50,22 @@ except Exception:
     except FileNotFoundError:
         print("\u001b[0;31mError: Can't find hash file, make sure they are on the same folder as the script.\u001b[0m")
         exit()
-if len(sys.argv) < 2 or len(sys.argv) > 4:
-    print("\u001b[1;31mUsage:\n----------\u001b[0m\n\n")
-    print("\u001b[0;32;40m$ python3 CueMaker.py <directory> <recursive> <generic-cues>\u001b[0m\n")
-    print("Go to \"\u001b[2;36mgithub.com/tralph3/psx-cue-maker\u001b[0m\" for detailed usage instructions.")
-    exit()
 
 try:
-    directory = sys.argv[1]
+    directory = args.directory
     os.chdir(directory)
 except FileNotFoundError:
     print("\033[0;33;47m Invalid directory")
     exit()
 
-try:
-    recursive = sys.argv[2]
-except IndexError:
-    recursive = "n"
-
-try:
-    genericCues = sys.argv[3]
-    if genericCues.lower() == "y":
-        genericCues = True
-    elif genericCues.lower() == "n":
-        genericCues = False
-    else:
-        print("\u001b[0;31mError: Bad argument, only \"y\" or \"n\" accepted\u001b[0m")
-        exit()
-except IndexError:
-    genericCues = True
-
-types = ("*.bin", "*.img", "*.chd")
-
-matchingFiles = []
-cueFiles = []
-m3uWriteCounter = 0
-cueCreatedCounter = 0
-currentGameCue = ""
-currentGameCuePath = ""
-currentGameTrackNumber = 0
-
-if recursive.lower() == "y":
+if recursive:
     for files in types:
         matchingFiles.extend(glob.glob("**/" + files, recursive=True))
         matchingFiles = sorted(matchingFiles)
-elif recursive.lower() == "n":
+else:
     for files in types:
         matchingFiles.extend(glob.glob(files))
         matchingFiles = sorted(matchingFiles)
-else:
-    print("\u001b[0;31mError: Bad argument, only \"y\" or \"n\" accepted\u001b[0m")
-    exit()
 
 print("\u001b[1;32mCreating .cue...\u001b[0m\n")
 
