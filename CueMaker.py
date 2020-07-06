@@ -12,8 +12,9 @@ import hashlib
 import argparse
 from urllib.request import urlopen
 
+
 parser = argparse.ArgumentParser(description="Original .cue file fetcher for game roms and .m3u creator.")
-parser.add_argument("directory", type=str, help="The directory for the roms")
+parser.add_argument("directory", type=str, help="the directory for the roms")
 parser.add_argument("-r", "--recursive", action="store_true", help="search sub-folders")
 parser.add_argument("-g", "--generic", action="store_true", help="create generic cue files if originals can't be found")
 args = parser.parse_args()
@@ -24,8 +25,10 @@ types = ("*.bin", "*.img", "*.chd")
 
 matchingFiles = []
 cueFiles = []
+
 m3uWriteCounter = 0
 cueCreatedCounter = 0
+
 currentGameCue = ""
 currentGameCuePath = ""
 currentGameTrackNumber = 0
@@ -55,7 +58,7 @@ try:
     directory = args.directory
     os.chdir(directory)
 except FileNotFoundError:
-    print("\033[0;33;47m Invalid directory")
+    print("\u001b[0;31mInvalid directory\u001b[0m")
     exit()
 
 if recursive:
