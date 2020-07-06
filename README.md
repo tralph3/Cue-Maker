@@ -3,10 +3,10 @@ A simple and easy to use program that fetches the original .cue files for your r
 
 # Dependencies
 
-```
-Python 3.5 or greater
-tkinter module (GUI only)
-```
+
+* Python 3.5 or greater
+* tkinter module (GUI only)
+
 
 # Usage
 This program will work with the following extensions:

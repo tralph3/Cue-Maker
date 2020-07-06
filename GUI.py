@@ -9,7 +9,6 @@
 import tkinter as tk
 from tkinter import filedialog
 import subprocess
-import shlex
 import os
 import sys
 
