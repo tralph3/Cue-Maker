@@ -16,11 +16,13 @@ from urllib.request import urlopen
 parser = argparse.ArgumentParser(description="Original .cue file fetcher for game roms and .m3u creator.")
 parser.add_argument("directory", type=str, help="the directory for the roms")
 parser.add_argument("-r", "--recursive", action="store_true", help="search sub-folders")
-parser.add_argument("-g", "--generic", action="store_true", help="create generic cue files if originals can't be found")
+parser.add_argument("-g", "--generic", action="store_true", help="create generic .cue files if originals can't be found")
+parser.add_argument("-m", "--m3u", action="store_true", help="create .m3u files for multiple disc games")
 args = parser.parse_args()
 
 recursive = args.recursive
 genericCues = args.generic
+allowM3u = args.m3u
 types = ("*.bin", "*.img", "*.chd")
 
 matchingFiles = []
@@ -39,38 +41,6 @@ def getSha1(file):
         for chunk in iter(lambda: f.read(4096), b""):
             hashSha1.update(chunk)
     return hashSha1.hexdigest()
-
-try:
-    link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/psx.hash'
-    psxHashFile = urlopen(link).read().decode("UTF-8")
-    link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/saturn.hash'
-    saturnHashFile = urlopen(link).read().decode("UTF-8")
-except Exception:
-    try:
-        print("\u001b[0;31mError: Can't connect to GitHub, defaulting to local hash file.\u001b[0m")
-        psxHashFile = open("psx.hash", "r").read()
-        saturnHashFile = open("saturn.hash", "r").read()
-    except FileNotFoundError:
-        print("\u001b[0;31mError: Can't find hash file, make sure they are on the same folder as the script.\u001b[0m")
-        exit()
-
-try:
-    directory = args.directory
-    os.chdir(directory)
-except FileNotFoundError:
-    print("\u001b[0;31mInvalid directory\u001b[0m")
-    exit()
-
-if recursive:
-    for files in types:
-        matchingFiles.extend(glob.glob("**/" + files, recursive=True))
-        matchingFiles = sorted(matchingFiles)
-else:
-    for files in types:
-        matchingFiles.extend(glob.glob(files))
-        matchingFiles = sorted(matchingFiles)
-
-print("\u001b[1;32mCreating .cue...\u001b[0m\n")
 
 def createGenericCue(cuePath, fileName, system="PlayStation"):
     global cueCreatedCounter
@@ -255,32 +225,69 @@ def generateCue(file):
         print("\u001b[1;31mThis file already has a .cue\u001b[0m\n--------")
         cueFiles.append(cuePath)
 
+def createM3u(cueFiles):
+	global m3uWriteCounter
+	
+	print("\n\u001b[1;32mCreating .m3u...\u001b[0m\n")
+	for file in cueFiles:
+		if file.rfind("/") != -1:
+			fileDirectory = file[0:file.rfind("/") + 1]
+			fileName = file[file.rfind("/") + 1:len(file)]
+		else:
+			fileDirectory = ""
+			fileName = file
+
+		if fileName.lower().find(" (disc") != -1 or fileName.lower().find("_(disc") != -1:
+			print("Found file: \"\u001b[1;33m" + fileName + "\u001b[0m\"")
+			discWordIndex = fileName.lower().rfind(" (disc")
+			discClose = fileName.lower().rfind(")", discWordIndex + 2)
+			m3uFilePath = fileDirectory + fileName.replace(fileName[discWordIndex:discClose + 1], "").replace(fileName[-4:], ".m3u")
+			m3u = open(m3uFilePath, "a+")
+			m3u.seek(0)
+			if m3u.read().find(fileName) == -1:
+				m3u.write(fileName + "\n")
+				print("\u001b[36mWrote \"\u001b[1;34m" + fileName + "\u001b[36m\" to \"\u001b[1;33m" + fileName[0:discWordIndex] + ".m3u\u001b[36m\"\u001b[0m\n--------")
+				m3uWriteCounter += 1
+			else:
+				print("\u001b[31m\"\u001b[1;34m" + fileName + "\u001b[31m\" is already present on \"\u001b[33m" + fileName[0:discWordIndex] + ".m3u\u001b[31m\"\u001b[0m\n--------")
+			m3u.close()
+
+try:
+    link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/psx.hash'
+    psxHashFile = urlopen(link).read().decode("UTF-8")
+    link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/saturn.hash'
+    saturnHashFile = urlopen(link).read().decode("UTF-8")
+except Exception:
+    try:
+        print("\u001b[0;31mError: Can't connect to GitHub, defaulting to local hash file.\u001b[0m")
+        psxHashFile = open("psx.hash", "r").read()
+        saturnHashFile = open("saturn.hash", "r").read()
+    except FileNotFoundError:
+        print("\u001b[0;31mError: Can't find hash file, make sure they are on the same folder as the script.\u001b[0m")
+        exit()
+
+try:
+    directory = args.directory
+    os.chdir(directory)
+except FileNotFoundError:
+    print("\u001b[0;31mInvalid directory\u001b[0m")
+    exit()
+
+if recursive:
+    for files in types:
+        matchingFiles.extend(glob.glob("**/" + files, recursive=True))
+        matchingFiles = sorted(matchingFiles)
+else:
+    for files in types:
+        matchingFiles.extend(glob.glob(files))
+        matchingFiles = sorted(matchingFiles)
+
+print("\u001b[1;32mCreating .cue...\u001b[0m\n")
+
 for file in matchingFiles:
     generateCue(file)
-    
 
-print("\n\u001b[1;32mCreating .m3u...\u001b[0m\n")
-for file in cueFiles:
-    if file.rfind("/") != -1:
-        fileDirectory = file[0:file.rfind("/") + 1]
-        fileName = file[file.rfind("/") + 1:len(file)]
-    else:
-        fileDirectory = ""
-        fileName = file
-
-    if fileName.lower().find(" (disc") != -1 or fileName.lower().find("_(disc") != -1:
-        print("Found file: \"\u001b[1;33m" + fileName + "\u001b[0m\"")
-        discWordIndex = fileName.lower().rfind(" (disc")
-        discClose = fileName.lower().rfind(")", discWordIndex + 2)
-        m3uFilePath = fileDirectory + fileName.replace(fileName[discWordIndex:discClose + 1], "").replace(fileName[-4:], ".m3u")
-        m3u = open(m3uFilePath, "a+")
-        m3u.seek(0)
-        if m3u.read().find(fileName) == -1:
-            m3u.write(fileName + "\n")
-            print("\u001b[36mWrote \"\u001b[1;34m" + fileName + "\u001b[36m\" to \"\u001b[1;33m" + fileName[0:discWordIndex] + ".m3u\u001b[36m\"\u001b[0m\n--------")
-            m3uWriteCounter += 1
-        else:
-            print("\u001b[31m\"\u001b[1;34m" + fileName + "\u001b[31m\" is already present on \"\u001b[33m" + fileName[0:discWordIndex] + ".m3u\u001b[31m\"\u001b[0m\n--------")
-        m3u.close()
+if allowM3u:
+	createM3u(cueFiles)
 
 print("\n\n\033[32mFinished!\nCreated \u001b[35m" + str(cueCreatedCounter) + "\u001b[32m .cue and wrote \u001b[35m" + str(m3uWriteCounter) + "\u001b[32m lines to .m3u!\u001b[0m")

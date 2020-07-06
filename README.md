@@ -22,7 +22,7 @@ This program will work with the following extensions:
 Using this program is really simple. I'm using the argparse library, so you can pass the -h flag for usage instructions. Alternatively, you can see the output of the command here:
 
 ```
-usage: CueMaker.py [-h] [-r] [-g] directory
+usage: CueMaker.py [-h] [-r] [-g] [-m] directory
 
 Original .cue file fetcher for game roms and .m3u creator.
 
@@ -32,8 +32,8 @@ positional arguments:
 optional arguments:
   -h, --help       show this help message and exit
   -r, --recursive  search sub-folders
-  -g, --generic    create generic cue files if originals can't be found
-
+  -g, --generic    create generic .cue files if originals can't be found
+  -m, --m3u        create .m3u files for multiple disc games
 ```
 
 If you want to use a GUI, run the GUI.py file on a terminal. You can still see the console output. The GUI.py file is entirely optional.

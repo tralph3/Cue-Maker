@@ -26,6 +26,8 @@ def callCueMaker():
 			command.append("-r")
 		if genericVar.get():
 			command.append("-g")
+		if m3uVar.get():
+			command.append("-m")
 		command.append(directoryEntry.get())
 		
 		process = subprocess.Popen(command)
@@ -51,6 +53,9 @@ genericVar = tk.IntVar()
 genericCheck = tk.Checkbutton(topFrame, text="Create generic cues*", font=40, variable=genericVar)
 genericExplanation = tk.Label(bottomFrame, text="*Only creates generic cues if the original can't be found", font=("Monospace", 8))
 
+m3uVar = tk.IntVar()
+m3uCheck = tk.Checkbutton(topFrame, text="Create .m3u for multiple disc games", font=40, variable=m3uVar)
+
 directoryEntry = tk.Entry(middleFrame, width=44, borderwidth=2)
 directoryEntry.insert(0, "Enter rom directory")
 directoryButton = tk.Button(middleFrame, text="...", command=askDirectory)
@@ -64,6 +69,7 @@ recursiveCheck.pack(side = "top", anchor = "nw")
 
 genericCheck.pack(side = "top", anchor = "nw")
 
+m3uCheck.pack(side = "top", anchor = "nw")
 
 directoryEntry.pack(side = "left", fill = "x")
 directoryButton.pack(side = "right")
