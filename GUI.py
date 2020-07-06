@@ -84,4 +84,5 @@ topFrame.pack(side = "top", anchor = "nw")
 middleFrame.pack(side = "top")
 bottomFrame.pack(side = "top")
 
+window.resizable(width=False, height=False)
 window.mainloop()
