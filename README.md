@@ -36,7 +36,17 @@ optional arguments:
   -m, --m3u        create .m3u files for multiple disc games
 ```
 
-If you want to use a GUI, run the GUI.py file on a terminal. You can still see the console output. The GUI.py file is entirely optional.
+If you want to use a GUI, run the GUI.py file on a terminal. You can still see the console output. The GUI.py file is entirely optional:
+
+```
+$ ./GUI.py
+```
+
+If that fails you can specify to run the script with python directly:
+
+```
+$ python3 GUI.py
+```
 
 ## Formatting
 
