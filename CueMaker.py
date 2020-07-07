@@ -11,7 +11,11 @@ import glob
 import hashlib
 import argparse
 from urllib.request import urlopen
+import configparser
 
+configParser = configparser.RawConfigParser()
+configFilePath = r'links.cfg'
+configParser.read(configFilePath)
 
 parser = argparse.ArgumentParser(description="Original .cue file fetcher for game roms and .m3u creator.")
 parser.add_argument("directory", type=str, help="the directory for the roms")
@@ -45,12 +49,12 @@ def getSha1(file):
 def createGenericCue(cuePath, fileName, system="PlayStation"):
     global cueCreatedCounter
     if system == "PlayStation":
-        number = "2"
+        mode = "2"
     elif system == "Saturn":
-        number = "1"
+        mode = "1"
 
     cue = open(cuePath, "w+")
-    cueText = "FILE \"" + fileName + "\" BINARY\n  TRACK 01 MODE" + number + "/2352\n    INDEX 01 00:00:00\n"
+    cueText = "FILE \"" + fileName + "\" BINARY\n  TRACK 01 MODE" + mode + "/2352\n    INDEX 01 00:00:00\n"
     cue.write(cueText)
     cue.close()
     print("\u001b[36mCreated: \"\u001b[1;33m" + fileName[0:len(fileName) - 4] + ".cue\u001b[36m\"\u001b[0m\n--------")
@@ -60,14 +64,14 @@ def fetchCue(entryName, system):
     #Creates links given an entry name
     if system == "PlayStation":
         try:
-            link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/Sony PlayStation Cue Sheets (redump.org)/' + entryName[:len(entryName)-4] + ".cue"
+            link = "{}{}.cue".format(configParser.get('Links', 'psxCueBase'), entryName[:-4])
             link = link.replace(" ", "%20")
             cueText = urlopen(link).read().decode("UTF-8")
         except Exception:
             return Exception
     elif system == "Saturn":
         try:
-            link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/Sega Saturn Cue Sheets (redump.org)/' + entryName[:len(entryName)-4] + ".cue"
+            link = "{}{}.cue".format(configParser.get('Links', 'saturnCueBase'), entryName[:-4])
             link = link.replace(" ", "%20")
             cueText = urlopen(link).read().decode("UTF-8")
         except Exception:
@@ -253,9 +257,9 @@ def createM3u(cueFiles):
 			m3u.close()
 
 try:
-    link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/psx.hash'
+    link = configParser.get("Links", "psxHash")
     psxHashFile = urlopen(link).read().decode("UTF-8")
-    link = 'https://raw.githubusercontent.com/tralph3/Cue-Maker/master/saturn.hash'
+    link = configParser.get("Links", "saturnHash")
     saturnHashFile = urlopen(link).read().decode("UTF-8")
 except Exception:
     try:
