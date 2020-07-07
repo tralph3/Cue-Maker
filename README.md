@@ -17,7 +17,7 @@ This program will work with the following extensions:
 .chd > .m3u creation
 ```
 
-**You only need the file "CueMaker.py" everything else will be fetched from this repo.**
+**You need the file "CueMaker.py and the links.cfg" everything else will be fetched from this repo.**
 
 Using this program is really simple. I'm using the argparse library, so you can pass the -h flag for usage instructions. Alternatively, you can see the output of the command here:
 
