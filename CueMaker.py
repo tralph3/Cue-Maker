@@ -13,8 +13,11 @@ import argparse
 from urllib.request import urlopen
 import configparser
 
+scriptDirectory = os.path.dirname(os.path.realpath(__file__)) + "/"
+
 configParser = configparser.RawConfigParser()
-configFilePath = r'links.cfg'
+configFilePath = scriptDirectory + r'links.cfg'
+print(configFilePath)
 configParser.read(configFilePath)
 
 parser = argparse.ArgumentParser(description="Original .cue file fetcher for game roms and .m3u creator.")
@@ -264,8 +267,8 @@ try:
 except Exception:
     try:
         print("\u001b[0;31mError: Can't connect to GitHub, defaulting to local hash file.\u001b[0m")
-        psxHashFile = open("psx.hash", "r").read()
-        saturnHashFile = open("saturn.hash", "r").read()
+        psxHashFile = open(scriptDirectory + "psx.hash", "r").read()
+        saturnHashFile = open(scriptDirectory + "saturn.hash", "r").read()
     except FileNotFoundError:
         print("\u001b[0;31mError: Can't find hash file, make sure they are on the same folder as the script.\u001b[0m")
         exit()
