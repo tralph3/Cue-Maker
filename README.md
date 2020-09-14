@@ -15,7 +15,7 @@ This program will work with the following extensions:
 Using this program is really simple. I'm using the argparse library, so you can pass the -h flag for usage instructions. Alternatively, you can see the output of the command here:
 
 ```
-usage: cuemaker [-h] [-r] [-g] [-m] {playstation,playstation2,saturn} directory
+usage: cuemaker [-h] [-r] [-g] [-m] {playstation,playstation2,saturn,3do} directory
 
 Original .cue file fetcher for game roms and .m3u creator.
 

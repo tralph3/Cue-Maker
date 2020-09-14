@@ -30,6 +30,7 @@ import argparse
 from urllib.request import urlopen
 from urllib.parse import quote
 import configparser
+import platform
 
 #Stats to display at the end
 m3uWriteCounter = 0
@@ -251,7 +252,13 @@ if __name__ == "__main__":
 	scriptDirectory = os.path.dirname(os.path.realpath(__file__)) + "/"
 
 	configParser = configparser.RawConfigParser()
-	configFilePath = scriptDirectory + r'links.cfg'
+
+	#Windows uses local folder for the links.cfg
+	if platform.system() == "Windows":
+		configFilePath = "links.cfg"
+	else:
+		configFilePath = "/usr/share/cuemaker/links.cfg"
+
 	configParser.read(configFilePath)
 
 	parser = argparse.ArgumentParser(description="Original .cue file fetcher for game roms and .m3u creator.", prog="cuemaker")
