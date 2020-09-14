@@ -1,3 +1,0 @@
-FILE "Zoids - Teikoku vs Kyouwakoku - Meka Seitai no Idenshi (Japan).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00

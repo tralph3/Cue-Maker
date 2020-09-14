@@ -1,3 +1,0 @@
-FILE "StationMaster 4-2001 Xploder (Germany) (En,De) (Unl).bin" BINARY
-  TRACK 01 MODE2/2352
-    INDEX 01 00:00:00
