@@ -1,13 +1,6 @@
 # Cue Maker
 A simple and easy to use program that fetches the original .cue files for your roms.
 
-# Dependencies
-
-
-* Python 3.5 or greater
-* tkinter module (GUI only)
-
-
 # Usage
 This program will work with the following extensions:
 
@@ -17,7 +10,7 @@ This program will work with the following extensions:
 .chd > .m3u creation
 ```
 
-**You need the file "CueMaker.py and the links.cfg" everything else will be fetched from this repo.**
+**You need the file "CueMaker.py and the links.cfg" everything else will be fetched from my "Content" repo.**
 
 Using this program is really simple. I'm using the argparse library, so you can pass the -h flag for usage instructions. Alternatively, you can see the output of the command here:
 
@@ -35,19 +28,6 @@ optional arguments:
   -g, --generic    create generic .cue files if originals can't be found
   -m, --m3u        create .m3u files for multiple disc games
 ```
-
-If you want to use a GUI, run the GUI.py file on a terminal. You can still see the console output. The GUI.py file is entirely optional:
-
-```
-$ ./GUI.py
-```
-
-If that fails you can specify to run the script with python directly:
-
-```
-$ python3 GUI.py
-```
-
 ## Formatting
 
 You will need to follow certaing formatting on the roms name's in order to ensure the correct functionality of the program. The list of roms is ordered alphabetically when the program is executed, for this reason you need to make sure that Track and Disc files are in the correct order. To make it easy, make sure your roms comply with these points:
@@ -68,4 +48,4 @@ This is a correctly formatted list of roms:
 3x3 Eyes - Kyuusei Koushu S (Japan) (Disc 2) (Track 2).bin
 ```
 
-## You are free to distribute and modify this software as long as you don't claim it as your own.
+## You are free to distribute and modify this software as and even use it in your own software as long as you comply with the GPL
