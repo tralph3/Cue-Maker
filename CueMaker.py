@@ -68,6 +68,9 @@ def fetchCue(entryName):
 	elif args.system == "playstation2":
 		link = "{}{}.cue".format(configParser.get('Links', 'ps2CueBase'), entryName[:-4]).replace(" ", "%20")
 		cueText = urlopen(link).read().decode("UTF-8")
+	elif args.system == "3do":
+		link = "{}{}.cue".format(configParser.get('Links', '3doCueBase'), entryName[:-4]).replace(" ", "%20")
+		cueText = urlopen(link).read().decode("UTF-8")
 	return cueText
 
 def getTrackNumber(entryName):
@@ -252,7 +255,7 @@ if __name__ == "__main__":
 	configParser.read(configFilePath)
 
 	parser = argparse.ArgumentParser(description="Original .cue file fetcher for game roms and .m3u creator.", prog="cuemaker")
-	parser.add_argument("system", type=str, help="the system (console) the roms belong to", choices=["playstation", "playstation2", "saturn"])
+	parser.add_argument("system", type=str, help="the system (console) the roms belong to", choices=["playstation", "playstation2", "saturn", "3do"])
 	parser.add_argument("directory", type=str, help="the directory for the roms")
 	parser.add_argument("-r", "--recursive", action="store_true", help="search sub-folders")
 	parser.add_argument("-g", "--generic", action="store_true", help="create generic .cue files if originals can't be found")
@@ -296,6 +299,18 @@ if __name__ == "__main__":
 			print("\u001b[0;31mError: Can't connect to GitHub, defaulting to local hash file.\u001b[0m")
 			try:
 				hashFile = open(scriptDirectory + "ps2.hash", "r").read()
+			except FileNotFoundError:
+				print("\u001b[0;31mError: Can't find hash file, make sure they are on the same folder as the script.\u001b[0m")
+				exit()
+
+	elif args.system == "3do":
+		try:
+			link = configParser.get("Links", "3doHash")
+			hashFile = urlopen(link).read().decode("UTF-8")
+		except Exception:
+			print("\u001b[0;31mError: Can't connect to GitHub, defaulting to local hash file.\u001b[0m")
+			try:
+				hashFile = open(scriptDirectory + "3do.hash", "r").read()
 			except FileNotFoundError:
 				print("\u001b[0;31mError: Can't find hash file, make sure they are on the same folder as the script.\u001b[0m")
 				exit()

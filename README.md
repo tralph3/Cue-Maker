@@ -20,7 +20,7 @@ usage: cuemaker [-h] [-r] [-g] [-m] {playstation,playstation2,saturn} directory
 Original .cue file fetcher for game roms and .m3u creator.
 
 positional arguments:
-  {playstation,playstation2,saturn}
+  {playstation,playstation2,saturn,3do}
                         the system (console) the roms belong to
   directory             the directory for the roms
 
