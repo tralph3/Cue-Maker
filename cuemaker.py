@@ -26,7 +26,6 @@
 import os, glob, hashlib, argparse, configparser, platform, ssl
 from zipfile import ZipFile, ZIP_DEFLATED
 from urllib.request import urlopen
-from urllib.parse import quote
 from shutil import rmtree
 
 
@@ -67,7 +66,7 @@ def fetchCue(entryName):
 		link = "{}{}.cue".format(configParser.get('Links', 'psxCueBase'), entryName[:-4]).replace(" ", "%20")
 		cueText = urlopen(link).read().decode("UTF-8")
 	elif args.system == "saturn":
-		link = quote("{}{}.cue".format(configParser.get('Links', 'saturnCueBase'), entryName[:-4])).replace(" ", "%20")
+		link = "{}{}.cue".format(configParser.get('Links', 'saturnCueBase'), entryName[:-4]).replace(" ", "%20")
 		cueText = urlopen(link).read().decode("UTF-8")
 	elif args.system == "playstation2":
 		link = "{}{}.cue".format(configParser.get('Links', 'ps2CueBase'), entryName[:-4]).replace(" ", "%20")
