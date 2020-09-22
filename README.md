@@ -39,7 +39,7 @@ This is an example command:
 $ cuemaker -zmr playstation .
 ```
 
-This command will extract all zip files that finds in the current directory, search sub-folders for roms, create .m3u files if the games are multi-disc, and recompress anything that was previously compressed, treating them all as playstation games (meaning it will try to match them agains the playstation games database).
+This command will extract all zip files that finds in the current directory, search sub-folders for roms, create .m3u files if the games are multi-disc, and recompress anything that was previously compressed, treating them all as playstation games (meaning it will try to match them against the playstation games database).
 
 ## Formatting
 
