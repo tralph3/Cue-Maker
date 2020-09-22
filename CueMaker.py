@@ -233,9 +233,11 @@ def createM3u(cueFiles):
 
 		if fileName.lower().find(" (disc") != -1 or fileName.lower().find("_(disc") != -1:
 			print("Found file: \"\u001b[1;33m" + fileName + "\u001b[0m\"")
-			discWordIndex = fileName.lower().rfind(" (disc")
-			discClose = fileName.lower().rfind(")", discWordIndex + 2)
-			m3uFilePath = fileDirectory + fileName.replace(fileName[discWordIndex:discClose + 1], "").replace(fileName[-4:], ".m3u")
+			print(fileName)
+			discWordIndex = fileName.lower().index(" (disc")
+			discEndIndex = fileName.find(")", discWordIndex) + 1
+			m3uFilePath = fileDirectory + fileName.replace(fileName[discWordIndex:discEndIndex], "").replace(fileName[-4:], ".m3u")
+			print(m3uFilePath)
 			m3u = open(m3uFilePath, "a+")
 			m3u.seek(0)
 			if m3u.read().find(fileName) == -1:
