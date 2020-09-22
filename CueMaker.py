@@ -23,14 +23,14 @@
 #                                #
 ##################################
 
-import os
-import glob
-import hashlib
-import argparse
+import os, glob, hashlib, argparse, configparser, platform, ssl
 from urllib.request import urlopen
 from urllib.parse import quote
-import configparser
-import platform
+
+
+# create SSL certificates
+if (not os.environ.get('PYTHONHTTPSVERIFY', '') and getattr(ssl, '_create_unverified_context', None)):
+	ssl._create_default_https_context = ssl._create_unverified_context
 
 #Stats to display at the end
 m3uWriteCounter = 0
@@ -140,8 +140,7 @@ def generateCue(file):
 
 			#Modify entry name to get the appropiate link
 			trackNumber = getTrackNumber(entryName)
-			#Remove leading 0 from the string by converting to int and back
-			entryName = entryName.replace(" (Track " + str(int(trackNumber)) + ").bin", ".cue")
+			entryName = entryName.replace(entryName[entryName.lower().index(" (track"):], ".cue")
 
 			if int(trackNumber) == 1:
 				#Fetch the cue and save its entirety into the global variable "currentGameCue" for later use
