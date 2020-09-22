@@ -17,8 +17,10 @@
 echo "It's needed to run the script as root to move the files to /usr in some distros"
 
 chmod +x cuemaker
-sudo mkdir /usr/share/cuemaker/
-sudo mv links.cfg /usr/share/cuemaker/
-sudo mv COPYING.txt /usr/share/cuemaker/
-sudo mv README.md /usr/share/cuemaker/
-sudo mv cuemaker /usr/bin/
+sudo chown root cuemaker
+sudo chown root links.cfg
+sudo mkdir -vp /usr/share/cuemaker/
+sudo mv -vf links.cfg /usr/share/cuemaker/
+sudo mv -vf COPYING.txt /usr/share/cuemaker/
+sudo mv -vf README.md /usr/share/cuemaker/
+sudo mv -vf cuemaker /usr/bin/
