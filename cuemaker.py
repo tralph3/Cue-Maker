@@ -33,6 +33,8 @@ from shutil import rmtree
 if (not os.environ.get('PYTHONHTTPSVERIFY', '') and getattr(ssl, '_create_unverified_context', None)):
 	ssl._create_default_https_context = ssl._create_unverified_context
 
+operatingSystem = ""
+
 # stats to display at the end
 m3uWriteCounter = 0
 cueCreatedCounter = 0
@@ -114,12 +116,22 @@ def generateCue(file):
 		cueFiles.append(file)
 		return None
 
-	if file.rfind("/") != -1:
-		fileDirectory = file[0:file.rfind("/") + 1]
-		fileName = file[file.rfind("/") + 1:len(file)]
+	if operatingSystem != "Windows":
+
+		if file.rfind("/") != -1:
+			fileDirectory = file[0:file.rfind("/") + 1]
+			fileName = file[file.rfind("/") + 1:len(file)]
+		else:
+			fileDirectory = ""
+			fileName = file
 	else:
-		fileDirectory = ""
-		fileName = file
+
+		if file.rfind("\\") != -1:
+			fileDirectory = file[0:file.rfind("\\") + 1]
+			fileName = file[file.rfind("\\") + 1:len(file)]
+		else:
+			fileDirectory = ""
+
 
 	cuePath = fileDirectory + fileName[0:len(fileName) - 4] + ".cue"
 	print("Found file: \"\u001b[1;33m" + fileName + "\u001b[0m\"")
@@ -238,12 +250,23 @@ def createM3u(cueFiles):
 
 	print("\n\u001b[1;32mCreating .m3u...\u001b[0m\n")
 	for file in cueFiles:
-		if file.rfind("/") != -1:
-			fileDirectory = file[0:file.rfind("/") + 1]
-			fileName = file[file.rfind("/") + 1:len(file)]
+
+		if operatingSystem != "Windows":
+
+			if file.rfind("/") != -1:
+				fileDirectory = file[0:file.rfind("/") + 1]
+				fileName = file[file.rfind("/") + 1:len(file)]
+			else:
+				fileDirectory = ""
+				fileName = file
 		else:
-			fileDirectory = ""
-			fileName = file
+
+			if file.rfind("\\") != -1:
+				fileDirectory = file[0:file.rfind("\\") + 1]
+				fileName = file[file.rfind("\\") + 1:len(file)]
+			else:
+				fileDirectory = ""
+
 
 		if fileName.lower().find(" (disc") != -1 or fileName.lower().find("_(disc") != -1:
 			print("Found file: \"\u001b[1;33m" + fileName + "\u001b[0m\"")
@@ -267,7 +290,9 @@ if __name__ == "__main__":
 	configParser = configparser.RawConfigParser()
 
 	# windows uses local folder for the links.cfg
-	if platform.system() == "Windows":
+	operatingSystem = platform.system()
+
+	if operatingSystem == "Windows":
 		configFilePath = "links.cfg"
 	else:
 		configFilePath = "/usr/share/cuemaker/links.cfg"
