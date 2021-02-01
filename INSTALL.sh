@@ -1,4 +1,5 @@
 #!/bin/bash
+set -exu
 #Copyright (C) 2020  Tomás Ralph
 #
 #This program is free software: you can redistribute it and/or modify
