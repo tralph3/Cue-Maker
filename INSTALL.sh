@@ -14,13 +14,15 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-echo "It's needed to run the script as root to move the files to /usr in some distros"
+if [ "$EUID" -ne 0 ]; then 
+  echo "It's needed to run the script as root to move the files to /usr in some distros"
+  exit 1
+fi
 
-chmod +x cuemaker
-sudo chown root cuemaker
-sudo chown root links.cfg
 sudo mkdir -vp /usr/share/cuemaker/
-sudo mv -vf links.cfg /usr/share/cuemaker/
-sudo mv -vf COPYING.txt /usr/share/cuemaker/
-sudo mv -vf README.md /usr/share/cuemaker/
-sudo mv -vf cuemaker /usr/bin/
+
+sudo cp -vf links.cfg COPYING.txt README.md /usr/share/cuemaker/
+sudo cp -vf cuemaker.py /usr/local/bin/cuemaker
+
+sudo chmod +x /usr/local/bin/cuemaker
+sudo chown -R root:root /usr/share/cuemaker/
