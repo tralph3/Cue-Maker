@@ -131,6 +131,7 @@ def generateCue(file):
 			fileName = file[file.rfind("\\") + 1:len(file)]
 		else:
 			fileDirectory = ""
+			fileName = file
 
 
 	cuePath = fileDirectory + fileName[0:len(fileName) - 4] + ".cue"
@@ -266,6 +267,7 @@ def createM3u(cueFiles):
 				fileName = file[file.rfind("\\") + 1:len(file)]
 			else:
 				fileDirectory = ""
+				fileName = file
 
 
 		if fileName.lower().find(" (disc") != -1 or fileName.lower().find("_(disc") != -1:
